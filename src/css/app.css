@@ -1,3 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+    @layer components {
+        
+        .hero-image {
+            min-height: 80vh
+            
+        }
+    
+        .cta {
+        transform: translateX(-75px);
+        }
+        
+        .card .card-image {
+            @apply transition duration-300 shadow-none;
+            height:180px;
+        }
+        .card:hover .card-image {
+            @apply shadow-xl;
+        }
+
+    }
+
+    @layer utilities {
+        .streched-link {
+            @apply absolute top-0 bottom-0 left-0 right-0 z-10 cursor-pointer;
+        }
+        .grid {
+            grid-auto-flow: dense;
+            grid-auto-rows: minmax(180px)
+        }
+        .title-card-on-sm {
+            @apply absolute top-0 bottom-0 left-0 flex flex-col justify-center pl-48;
+        }
+
+    }
+
+    @screen md {
+        .hero-image {
+            min-height: auto;
+        }
+        .cta {
+            top: 50%;
+            left: 50%;
+            transform: translateX(0px);
+        }
+        .card .card-image {
+            @apply h-full;
+        }
+    }
