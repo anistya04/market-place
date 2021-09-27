@@ -4,52 +4,102 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .hero-image {
+    min-height: 80vh;
+  }
 
-    @layer components {
-        
-        .hero-image {
-            min-height: 80vh
-            
-        }
-    
-        .cta {
-        transform: translateX(-75px);
-        }
-        
-        .card .card-image {
-            @apply transition duration-300 shadow-none;
-            height:180px;
-        }
-        .card:hover .card-image {
-            @apply shadow-xl;
-        }
+  .cta {
+    transform: translateX(-75px);
+  }
 
-    }
+  .card .card-image {
+    @apply transition duration-300 shadow-none;
+    height: 180px;
+  }
+  .card:hover .card-image {
+    @apply shadow-xl;
+  }
+  ul.breadcrumb {
+    @apply flex flex-wrap text-lg;
+  }
+  ul.breadcrumb li:last-child {
+    @apply font-semibold;
+  }
+  ul.breadcrumb li:not(:last-child) a {
+    @apply font-light;
+  }
+  ul.breadcrumb li:not(:last-child):after {
+    content: '/';
+    @apply px-4;
+  }
+  /* slider */
+  .slider {
+    @apply flex flex-col my-4;
+  }
 
-    @layer utilities {
-        .streched-link {
-            @apply absolute top-0 bottom-0 left-0 right-0 z-10 cursor-pointer;
-        }
-        .grid {
-            grid-auto-flow: dense;
-            grid-auto-rows: minmax(180px)
-        }
-        .title-card-on-sm {
-            @apply absolute top-0 bottom-0 left-0 flex flex-col justify-center pl-48;
-        }
+  .slider .thumbnail {
+    @apply flex order-last w-screen overflow-auto;
+  }
 
-    }
+  .slider .thumbnail .item {
+    @apply relative mb-4 bg-gray-100 rounded-lg cursor-pointer;
+    width: 106px;
+    height: 105px;
+  }
 
-    @screen md {
-        .hero-image {
-            min-height: auto;
-        }
-        .cta {
-            top: 50%;
-            left: 50%;
-            transform: translateX(0px);
-        }
-        .card .card-image {
-            @apply h-full;
-        }
-    }
+  .slider .thumbnail .item::after {
+    content: '';
+    @apply absolute inset-0 bg-black bg-opacity-0 border-2 border-black border-opacity-0 rounded-lg;
+  }
+  .slider .thumbnail .item.selected::after {
+    @apply bg-opacity-25 border-opacity-100;
+  }
+}
+
+@layer utilities {
+  .streched-link {
+    @apply absolute top-0 bottom-0 left-0 right-0 z-10 cursor-pointer;
+  }
+  .grid {
+    grid-auto-flow: dense;
+    grid-auto-rows: minmax(180px);
+  }
+  .title-card-on-sm {
+    @apply absolute top-0 bottom-0 left-0 flex flex-col justify-center pl-48;
+  }
+
+  a.cart svg g circle.dot {
+    @apply hidden;
+  }
+
+  a.cart-filled svg g circle.dot {
+    @apply block;
+  }
+}
+
+@screen md {
+  .hero-image {
+    min-height: auto;
+  }
+  .cta {
+    top: 50%;
+    left: 50%;
+    transform: translateX(0px);
+  }
+  .card .card-image {
+    @apply h-full;
+  }
+  .slider {
+    @apply flex-row;
+  }
+  .slider .thumbnail {
+    @apply order-first block w-auto overflow-hidden;
+  }
+
+  .slider .preview {
+    width: 560px;
+    height: 609px;
+    @apply mx-4;
+  }
+}
