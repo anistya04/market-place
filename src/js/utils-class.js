@@ -1,10 +1,11 @@
-export function addClass(e, classes) {
+function addClass(e, classes) {
   e.classList.add(...classes.split(' '));
 }
-export function removeClass(e, classes) {
+function removeClass(e, classes) {
   e.classList.remove(...classes.split(' '));
 }
 
-export function toggleClass(e, classes) {
+function toggleClass(e, classes) {
   e.classList.toggle(...classes.split(' '));
 }
+module.exports = { addClass, removeClass, toggleClass };
