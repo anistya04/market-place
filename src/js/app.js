@@ -7,3 +7,4 @@ import './thumbnail-active';
 import './shopping';
 import './cart';
 import './detail-shopping';
+import './ancor-link-smooth';

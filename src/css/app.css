@@ -63,7 +63,7 @@
   }
   .grid {
     grid-auto-flow: dense;
-    grid-auto-rows: minmax(180px);
+    grid-auto-rows: minmax(180px, auto);
   }
   .title-card-on-sm {
     @apply absolute top-0 bottom-0 left-0 flex flex-col justify-center pl-48;
